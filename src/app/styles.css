@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: Georgia, 'Times New Roman', serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #0b2d24;
+  }
+
+  button,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.snow-layer {
+  opacity: 0.34;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.78) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    22px 28px;
+  background-size:
+    54px 54px,
+    70px 70px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+  pointer-events: none;
+}
+
+@keyframes gift-wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-3deg);
+  }
+  60% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes name-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.name-pop {
+  animation: name-pop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .name-pop {
+    animation: none;
+  }
+}
+
+.group:hover .gift-box {
+  animation: gift-wiggle 0.5s ease-in-out;
+}
+
+.figma-custom-code-fragment {
+  display: contents;
+}
+
+.figma-bypass-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2147483647;
+  transform: translateY(-150%);
+  border-radius: 6px;
+  background: #111827;
+  color: #fff;
+  padding: 8px 12px;
+  font:
+    600 14px/1.2 system-ui,
+    sans-serif;
+  text-decoration: none;
+}
+
+.figma-bypass-link:focus {
+  transform: translateY(0);
+}
